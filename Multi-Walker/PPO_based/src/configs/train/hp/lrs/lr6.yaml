@@ -1,0 +1,21 @@
+name: 512net512bslr8e-4
+steps: 4000_0000
+
+net_arch:
+  pi: [512, 512]
+  vf: [512, 512]
+net_activation: ReLU
+
+max_cycles: 500
+
+n_steps: 5000
+batch_size: 512
+
+learning_rate: 8e-4
+
+seed: 42
+
+# Env Settings
+use_angle_reward: False
+use_f_disturbance: False
+use_f_obs: False

@@ -1,0 +1,23 @@
+defaults: 
+  - default
+  - _self_
+
+name: f_obs_10
+use_angle_reward: True
+use_f_disturbance: True
+use_f_obs: True
+net_arch:
+  pi: [256, 256]
+  vf: [256, 256]
+
+n_steps: 5000
+batch_size: 500
+
+learning_rate: 2e-4
+hydra:
+  searchpath:
+    - file://src/configs/train/hp
+
+
+# uv run src/hp.py --multirun hp=baseline,net_256,net_256x3,net_512
+# uv run src/hp.py --multirun hp=batchsize_6144,batchsize_1024,batchsize_512,batchsize_256,baseline

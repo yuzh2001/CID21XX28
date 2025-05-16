@@ -1,0 +1,47 @@
+defaults: 
+  - default
+  - render: gif_and_movie
+  - disturbances: only_world_friction
+  - _self_
+
+run_name: 250514_n_8
+
+seed: 0
+first_baseline: False
+eval_episodes: 1000
+
+n_walkers: 8
+show_reward_curve: False
+
+checkpoint_path:
+  - path: 20250514-220820_(angle_motor_obs_20250514-203236)angle_motor_obs<8>.zip
+    desc: 8个agent obs
+    use_f_obs: False
+    use_motor_obs: True
+    use_f_disturbance: False
+    use_angle_reward: True
+    use_motor_disturbance: False
+  - path: 20250513-144300_(baseline_20250513-144308)baseline<8>.zip
+    desc: 8个agent raw
+    use_f_obs: False
+    use_angle_reward: False
+    use_package_mass_obs: False
+
+render:
+  use_gif: False
+
+load_results: False
+result_file_name: 0301-16:03
+
+disturbances:
+  disturbances:
+  - name: "walker_motor_speed_change"
+    start_at: 200
+    end_at: 400
+    disturbance_args:
+      speed_factor_hip: 20
+      speed_factor_knee: 20
+
+hydra:
+  searchpath:
+    - file://src/configs/tests

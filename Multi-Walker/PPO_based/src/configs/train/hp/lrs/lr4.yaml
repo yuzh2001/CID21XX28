@@ -1,0 +1,21 @@
+name: 256net1000bslr2e-4
+steps: 4000_0000
+
+net_arch:
+  pi: [256, 256]
+  vf: [256, 256]
+net_activation: ReLU
+
+max_cycles: 500
+
+n_steps: 5000
+batch_size: 1000
+
+learning_rate: 2e-4
+
+seed: 42
+
+# Env Settings
+use_angle_reward: False
+use_f_disturbance: False
+use_f_obs: False

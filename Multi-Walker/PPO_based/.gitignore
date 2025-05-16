@@ -1,0 +1,16 @@
+**.zip
+__pycache__
+.venv
+logs
+checkpoint_models/*
+# !checkpoint_models/training
+# !checkpoint_models/semantic
+!checkpoint_models/need_saving/
+!checkpoint_models/need_saving/**
+wandb
+
+exp_results/**
+eval_results/*
+!eval_results
+
+multirun

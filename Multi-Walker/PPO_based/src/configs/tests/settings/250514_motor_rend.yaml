@@ -1,0 +1,46 @@
+defaults: 
+  - default
+  - render: gif_and_movie
+  - disturbances: only_world_friction
+  - _self_
+
+run_name: 250514_motor_render
+
+seed: 0
+first_baseline: False
+eval_episodes: 100
+
+show_reward_curve: False
+
+checkpoint_path:
+  - path: 20250224-181227_angle_motor_obs(angle_motor_obs_20250224-162841).zip
+    desc: M在扰动环境；有对 motor 的观察
+    use_f_obs: False
+    use_motor_obs: True
+    use_f_disturbance: False
+    use_angle_reward: True
+    use_motor_disturbance: False
+  - path: 20250218-172025_256net500bslr2e-4(256net500bslr2e-4_20250218-122355).zip
+    desc: M普通环境好check；没有 angle-reward（60reward 版本；比较保守）
+    use_f_obs: False
+    use_f_disturbance: False
+    use_angle_reward: True
+
+render:
+  use_gif: True
+
+load_results: False
+result_file_name: 0226-09:38
+
+disturbances:
+  disturbances:
+  - name: "walker_motor_speed_change"
+    start_at: 200
+    end_at: 400
+    disturbance_args:
+      speed_factor_hip: 20
+      speed_factor_knee: 20
+
+hydra:
+  searchpath:
+    - file://src/configs/tests

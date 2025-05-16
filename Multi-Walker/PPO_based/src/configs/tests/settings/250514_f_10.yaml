@@ -1,0 +1,48 @@
+defaults: 
+  - default
+  - render: gif_and_movie
+  - disturbances: only_world_friction
+  - _self_
+
+run_name: 250514_f_10
+
+seed: 0
+first_baseline: False
+eval_episodes: 1000
+
+show_reward_curve: False
+
+checkpoint_path:
+  - path: 20250513-175330_(f_obs_10_20250513-151108)f_obs_10<3>.zip
+    desc: F在摩擦环境；有对 f 的观察
+    use_f_obs: True
+    use_f_disturbance: False
+    use_angle_reward: True
+  - path: 20250218-172025_256net500bslr2e-4(256net500bslr2e-4_20250218-122355).zip
+    desc: F普通环境好check；没有 angle-reward（60reward 版本；比较保守）
+    use_f_obs: False
+    use_f_disturbance: False
+    use_angle_reward: True
+
+render:
+  use_gif: False
+
+load_results: False
+result_file_name: 0217-01:34
+
+disturbances:
+  disturbances:
+    - name: "world_friction_change"
+      start_at: 200
+      end_at: 400
+      disturbance_args:
+        friction: 10
+    # - name: "world_friction_change"
+    #   start_at: 350
+    #   end_at: 500
+    #   disturbance_args:
+    #     friction: 0.1
+
+hydra:
+  searchpath:
+    - file://src/configs/tests

@@ -1,0 +1,8 @@
+defaults: 
+  - hp: baseline
+  - _self_
+  # - override hydra/launcher: ray
+
+hydra:
+  searchpath:
+    - file://src/configs/train

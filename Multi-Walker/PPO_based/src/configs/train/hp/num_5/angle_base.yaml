@@ -1,0 +1,15 @@
+defaults: 
+  - default
+  - _self_
+name: angle_base_num_5
+
+agent_num: 5
+use_angle_reward: True
+
+hydra:
+  searchpath:
+    - file://src/configs/train/hp/num_5
+
+
+# uv run src/hp.py --multirun hp=baseline,net_256,net_256x3,net_512
+# uv run src/hp.py --multirun hp=batchsize_6144,batchsize_1024,batchsize_512,batchsize_256,baseline
