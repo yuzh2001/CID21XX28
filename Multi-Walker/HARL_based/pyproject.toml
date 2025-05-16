@@ -26,8 +26,3 @@ dependencies = [
 
 [project.urls]
 homepage = "https://github.com/PKU-MARL/HARL"
-
-[[tool.uv.index]]
-name = "cstcloud"
-url = "https://pypi.cstcloud.cn/simple"
-default = true

@@ -41,16 +41,6 @@ dependencies = [
 torch = { index = "pytorch" }
 
 [[tool.uv.index]]
-name = "cstcloud"
-url = "https://pypi.cstcloud.cn/simple"
-default = true
-
-[[tool.uv.index]]
 name = "pytorch"
 url = "https://download.pytorch.org/whl"
 explicit = true
-
-# [tool.uv.workspace]
-# members = [
-#   "packages/*"
-# ]
