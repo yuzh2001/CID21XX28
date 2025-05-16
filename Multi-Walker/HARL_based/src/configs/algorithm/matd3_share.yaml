@@ -1,0 +1,12 @@
+defaults:
+  - original/matd3@_here_
+  - _self_
+
+train:
+  # number of parallel environments for training data collection
+  n_rollout_threads: 20
+  eval_interval: 5000 # interval*threads=true_step
+
+name: matd3
+algo:
+  share_param: True

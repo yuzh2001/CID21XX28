@@ -1,0 +1,32 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 0512_happo
+save_group: n_walkers_1
+
+description: n_walker
+
+steps:
+  # - type: train
+  #   config_name: config
+  #   multirun: True
+  #   args:
+  #     - algorithm=happo
+  #     - environment=raw,disturb_motor_obs
+  #     - environment.n_walkers=2,8
+  - type: eval
+    config_name: config
+    multirun: True
+    args:
+      - setting=0425-agent_num
+      - setting.env_tweak.n_walkers=2,8
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - n_walkers_eval
+
+hydra:
+  searchpath:
+    - file://src/runs/

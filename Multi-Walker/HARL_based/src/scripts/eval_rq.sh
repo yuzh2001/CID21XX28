@@ -1,0 +1,1 @@
+uv run src/eval/eval.py --multirun setting=0425-agent_num setting.env_tweak.n_walkers=2,5,10 setting.group_name=$(date +%m%d/%H%M)

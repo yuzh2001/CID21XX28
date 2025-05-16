@@ -1,0 +1,26 @@
+defaults:
+  - default
+  - _self_
+
+run_group: latest
+save_group: latest
+
+description: full train and eval process, including all algorithms and environments
+
+steps:
+  - type: train
+    config_name: config
+    multirun: True
+    args:
+      - algorithm=mappo,happo,hasac
+      - environment=raw,angle,disturb_friction_no_obs,disturb_friction_obs,disturb_motor_no_obs,disturb_motor_obs,disturb_package_mass_no_obs,disturb_package_mass_obs
+  - type: eval
+    config_name: config
+    multirun: True
+    args:
+      - setting=0331-all
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - finish

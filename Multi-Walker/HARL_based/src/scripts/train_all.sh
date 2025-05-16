@@ -1,0 +1,5 @@
+# uv run src/train.py --multirun algorithm=mappo,happo,hasac environment=raw,angle,disturb_friction_no_obs,disturb_friction_obs,disturb_motor_no_obs,disturb_motor_obs,disturb_package_mass_no_obs,disturb_package_mass_obs
+uv run src/train.py --multirun algorithm=haa2c,hasac,happo environment=raw,angle,disturb_friction_no_obs,disturb_friction_obs,disturb_motor_no_obs,disturb_motor_obs,disturb_package_mass_no_obs,disturb_package_mass_obs group_name=$(date +%m%d/%H%M)
+uv run src/train.py --multirun algorithm=mappo,happo environment=raw,angle,disturb_friction_no_obs,disturb_friction_obs,disturb_motor_no_obs,disturb_motor_obs,disturb_package_mass_no_obs,disturb_package_mass_obs group_name=$(date +%m%d/%H%M)
+uv run src/train.py --multirun algorithm=maddpg,matd3,hatrpo environment=raw,angle,disturb_friction_no_obs,disturb_friction_obs,disturb_motor_no_obs,disturb_motor_obs,disturb_package_mass_no_obs,disturb_package_mass_obs
+# uv run src/train.py --multirun algorithm=hatrpo,maddpg_share,matd3_share environment=raw,angle,disturb_friction_no_obs,disturb_friction_obs,disturb_motor_no_obs,disturb_motor_obs,disturb_package_mass_no_obs,disturb_package_mass_obs

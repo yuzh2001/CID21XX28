@@ -1,0 +1,30 @@
+defaults:
+  - default
+  - _self_
+
+run_group: 250506_x_disturb
+save_group: x_friction
+
+description: x_disturb
+
+steps:
+  - type: train
+    config_name: config
+    multirun: True
+    args:
+      - algorithm=hasac
+      - environment=raw,angle,disturb_fric_1_obs,disturb_fric_5_obs,disturb_fric_10_obs
+  - type: eval
+    config_name: config
+    multirun: True
+    args:
+      - setting=0430-d_size
+  - type: bark
+    config_name: default
+    multirun: False
+    args:
+      - x_disturb_train_and_eval
+
+hydra:
+  searchpath:
+    - file://src/runs/

@@ -1,0 +1,117 @@
+defaults:
+  - default
+  - _self_
+
+run:
+  run_name: 0331-42seed-more-algo
+  seed: 42
+  eval_episodes: 1000
+  eval_threads: 200
+
+  use_custom_disturbance: False
+
+  load_results: False
+  result_file_name: 0327-16:19
+  ablation: False
+
+checkpoints:
+  # - algo: haa2c
+  #   timestamp: 0331-1641
+  #   desc: .
+  - algo: hasac
+    timestamp: 0331-1641
+    desc: .
+  - algo: mappo
+    timestamp: 0329-0026
+    desc: .
+  - algo: happo
+    timestamp: 0331-1641
+    desc: .
+scenarios:
+  - name: friction
+    is_raw: False
+    desc: "friction_0.01"
+    disturbances:
+      - name: "world_friction_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          friction: 0.01
+  - name: friction
+    is_raw: False
+    desc: "friction_0.3"
+    disturbances:
+      - name: "world_friction_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          friction: 0.3
+  - name: friction
+    is_raw: False
+    desc: "friction_1"
+    disturbances:
+      - name: "world_friction_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          friction: 1
+  - name: friction
+    is_raw: False
+    desc: "friction_5"
+    disturbances:
+      - name: "world_friction_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          friction: 5
+  - name: motor
+    is_raw: False
+    desc: "motor_speed_10"
+    disturbances:
+      - name: "walker_motor_speed_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          speed_factor_hip: 10
+          speed_factor_knee: 10
+  - name: motor
+    is_raw: False
+    desc: "motor_speed_1"
+    disturbances:
+      - name: "walker_motor_speed_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          speed_factor_hip: 1
+          speed_factor_knee: 1
+  - name: motor
+    is_raw: False
+    desc: "motor_speed_3"
+    disturbances:
+      - name: "walker_motor_speed_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          speed_factor_hip: 3
+          speed_factor_knee: 3
+  - name: package_mass
+    desc: 'package_mass_0.1'
+    is_raw: False
+    disturbances:
+      - name: "weight_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          mass: 0.1
+  - name: package_mass
+    is_raw: False
+    desc: 'package_mass_10'
+    disturbances:
+      - name: "weight_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          mass: 10
+render:
+  use_gif: False
+  show_reward_curve: False

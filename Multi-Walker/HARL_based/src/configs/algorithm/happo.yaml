@@ -1,0 +1,7 @@
+defaults:
+  - original/happo@_here_
+  - _self_
+
+name: happo
+train:
+  eval_interval: 10

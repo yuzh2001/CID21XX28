@@ -1,0 +1,69 @@
+defaults:
+  - default
+  - _self_
+
+run:
+  run_name: 0430-d_size
+  seed: 42
+  eval_episodes: 1000
+  eval_threads: 200
+
+  use_custom_disturbance: False
+
+  load_results: False
+  result_file_name: 0327-16:19
+
+  ablation: False
+
+checkpoints:
+  - algo: hasac
+    timestamp: 0331-1641
+    desc: .
+  # - algo: happo
+  #   timestamp: 0331-1641
+  #   desc: .
+  # - algo: hasac
+  #   timestamp: 0331-1641
+  #   desc: .
+scenarios:
+  - name: raw
+    is_raw: True
+    disturbances: []
+  # - name: angle
+  #   is_raw: True
+  #   disturbances: []
+  # - name: friction
+  #   is_raw: False
+  #   disturbances:
+  #     - name: "world_friction_change"
+  #       start_at: 200
+  #       end_at: 400
+  #       disturbance_args:
+  #         friction: 0.1
+  - name: fric_1
+    is_raw: False
+    disturbances:
+      - name: "world_friction_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          friction: 1
+  - name: fric_5
+    is_raw: False
+    disturbances:
+      - name: "world_friction_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          friction: 5
+  - name: fric_10
+    is_raw: False
+    disturbances:
+      - name: "world_friction_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          friction: 10
+render:
+  use_gif: False
+  show_reward_curve: False

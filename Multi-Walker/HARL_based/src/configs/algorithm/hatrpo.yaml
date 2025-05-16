@@ -1,0 +1,7 @@
+defaults:
+  - original/hatrpo@_here_
+  - _self_
+
+name: hatrpo
+train:
+  eval_interval: 10

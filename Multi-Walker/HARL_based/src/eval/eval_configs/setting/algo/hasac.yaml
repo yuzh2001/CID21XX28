@@ -1,0 +1,51 @@
+defaults:
+  - default
+  - _self_
+
+run:
+  run_name: 0331-all
+  seed: 42
+  eval_episodes: 6
+  eval_threads: 2
+
+  use_custom_disturbance: False
+
+  load_results: True
+  result_file_name: 0516-17:20 #0327-16:19
+
+checkpoints:
+  - algo: hasac
+    timestamp: 0331-1641
+    desc: .
+scenarios:
+  - name: raw
+    is_raw: True
+    disturbances: []
+  - name: friction
+    is_raw: False
+    disturbances:
+      - name: "world_friction_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          friction: 0.1
+  - name: motor
+    is_raw: False
+    disturbances:
+      - name: "walker_motor_speed_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          speed_factor_hip: 20
+          speed_factor_knee: 20
+  - name: package_mass
+    is_raw: False
+    disturbances:
+      - name: "weight_change"
+        start_at: 200
+        end_at: 400
+        disturbance_args:
+          mass: 1
+render:
+  use_gif: False
+  show_reward_curve: False

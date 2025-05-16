@@ -1,0 +1,11 @@
+defaults:
+  - original/haa2c@_here_
+  - _self_
+
+name: haa2c
+
+
+train:
+  # number of parallel environments for training data collection
+  n_rollout_threads: 20
+  eval_interval: 5000
